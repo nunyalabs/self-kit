@@ -1,0 +1,16 @@
+{
+  "name": "Hypertension Study Self-Administered Kit",
+  "short_name": "Self-Kit",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#101322",
+  "theme_color": "#d72c18",
+  "icons": [
+    {
+      "src": "assets/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

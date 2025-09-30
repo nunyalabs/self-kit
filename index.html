@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalised Hypertension Management through Digital N-of-1 Trials in Ghana</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="./assets/icon-512.svg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#d72c18">
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="glass-card p-4 mb-4">
+                    <h2 class="text-white fw-bold mb-3 text-center">Personalised Hypertension Management through Digital N-of-1 Trials in Ghana</h2>
+                    <p class="text-white-50 text-center mb-4"><strong>Objective:</strong> To understand stakeholder perspectives on integrating holistic and conventional hypertension treatments in Ghana through digital approaches.</p>
+                    <div id="questionnaireIntro"></div>
+                    <div id="single-recorder" class="mt-4">
+                        <h5 class="text-white">Record Your Answers</h5>
+                        <div class="alert alert-info">Please start the recording and answer all the questions in one continuous audio file. You can pause the recording if you need to take a break.</div>
+                        
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <button type="button" class="btn btn-danger btn-lg" id="singleRecordBtn"><i class="bi bi-mic"></i> Start Recording</button>
+                            <button type="button" class="btn btn-secondary btn-lg" id="singlePauseBtn" disabled><i class="bi bi-pause-circle"></i> Pause</button>
+                            <button type="button" class="btn btn-success btn-lg" id="singleStopBtn" disabled><i class="bi bi-stop-circle"></i> Stop Recording</button>
+                        </div>
+                        <div id="singleRecordingStatus" class="mb-3"></div>
+                        <div id="singleAudioPlayback" style="display:none">
+                            <audio controls></audio>
+                        </div>
+                        <div class="d-grid mt-4">
+                            <button type="button" class="btn btn-gradient btn-primary btn-lg" id="singleDownloadBtn" disabled>
+                                <i class="bi bi-download"></i> Download Your Recording
+                            </button>
+                        </div>
+                    </div>
+                    <form id="participantQuestionnaire">
+                        <div class="mb-4">
+                            <label class="form-label">I am a...</label>
+                            <select class="form-select" id="participantType" required>
+                                <option value="">Select your group</option>
+                                <option value="clinician">Clinician</option>
+                                <option value="herbalist">Herbalist</option>
+                                <option value="caregiver">Caregiver</option>
+                                <option value="policymaker">Policy Maker</option>
+                                <option value="researcher">Researcher</option>
+                            </select>
+                        </div>
+                        <div id="backgroundQuestions"></div>
+                        <hr class="my-4">
+                        <div id="interviewQuestions"></div>
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-gradient btn-success btn-lg">
+                                <i class="bi bi-send"></i> Submit and Proceed
+                            </button>
+                        </div>
+                    </form>
+                    <div id="results" class="mt-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="app.js" type="module"></script>
+
+    
+</body>
+</html>

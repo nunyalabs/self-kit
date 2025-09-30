@@ -1,0 +1,50 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  # Runs on pushes targeting the main branch
+  push:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install build tools 🛠️
+        run: npm install -g terser csso-cli
+
+      - name: Build and Minify ⚙️
+        run: |
+          # Create distribution directory
+          mkdir -p dist/assets
+
+          # Minify JS files (except app.js) and CSS
+          terser questionnaire_app.js -c -m -o dist/questionnaire_app.js
+          terser audio.js -c -m -o dist/audio.js
+          terser pwa.js -c -m -o dist/pwa.js
+          csso style.css -o dist/style.css
+
+          # Copy files that should not be minified
+          cp app.js dist/app.js
+          cp sw.js dist/sw.js
+          cp manifest.json dist/manifest.json
+          cp index.html dist/index.html
+
+          # Copy assets
+          cp -r assets/* dist/assets/
+
+      - name: Deploy to gh-pages 🚀
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
