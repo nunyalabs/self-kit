@@ -29,20 +29,19 @@
                     <div id="questionnaireIntro"></div>
                     <div id="single-recorder" class="mt-4">
                         <h5 class="text-white">Record Your Answers</h5>
-                        <div class="alert alert-info">Please start the recording and answer all the questions in one continuous audio file. You can pause the recording if you need to take a break.</div>
+                        <div class="alert alert-info">Please start the recording and answer all the questions in one continuous audio file.</div>
                         
                         <div class="d-flex align-items-center gap-2 mb-3">
-                            <button type="button" class="btn btn-danger btn-lg" id="singleRecordBtn"><i class="bi bi-mic"></i> Start Recording</button>
-                            <button type="button" class="btn btn-secondary btn-lg" id="singlePauseBtn" disabled><i class="bi bi-pause-circle"></i> Pause</button>
-                            <button type="button" class="btn btn-success btn-lg" id="singleStopBtn" disabled><i class="bi bi-stop-circle"></i> Stop Recording</button>
+                            <button type="button" class="btn btn-success btn-lg flex-fill" id="singleRecordBtn"><i class="bi bi-mic-fill"></i> Start</button>
+                            <button type="button" class="btn btn-danger btn-lg flex-fill" id="singleStopBtn" disabled><i class="bi bi-stop-fill"></i> Stop</button>
                         </div>
                         <div id="singleRecordingStatus" class="mb-3"></div>
                         <div id="singleAudioPlayback" style="display:none">
-                            <audio controls></audio>
+                            <audio controls class="w-100"></audio>
                         </div>
                         <div class="d-grid mt-4">
                             <button type="button" class="btn btn-gradient btn-primary btn-lg" id="singleDownloadBtn" disabled>
-                                <i class="bi bi-download"></i> Download Your Recording
+                                <i class="bi bi-download"></i> Download
                             </button>
                         </div>
                     </div>

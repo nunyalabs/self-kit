@@ -65,11 +65,15 @@ export function startRecording(mode='idi') {
       isRecording = true;
       const sels = getSelectors(mode);
       const btn = document.getElementById(sels.recordBtn);
-      if (btn) { btn.innerHTML = '<i class="bi bi-stop-circle"></i> Stop Recording'; btn.classList.remove('btn-danger'); btn.classList.add('btn-success'); }
+      if (btn) { 
+        btn.disabled = true;
+      }
+      const stopBtn = document.getElementById(mode === 'questionnaire' ? 'singleStopBtn' : 'idiStopBtn');
+      if (stopBtn) {
+        stopBtn.disabled = false;
+      }
       const rs = document.getElementById(sels.recordingStatus);
       if (rs) rs.innerHTML = '<span class="recording-indicator"><i class="bi bi-record-circle me-2"></i>Recording in progress...</span>';
-  const pauseBtn = document.getElementById(mode === 'questionnaire' ? 'singlePauseBtn' : 'idiPauseBtn');
-  if (pauseBtn) { pauseBtn.disabled = false; pauseBtn.innerHTML = '<i class="bi bi-pause-circle"></i> Pause'; }
     })
     .catch(err => { console.error('Mic error:', err); alert('Unable to access microphone. Check permissions.'); });
 }
@@ -79,13 +83,17 @@ export function stopRecording(mode='idi') {
     mediaRecorder.stop();
     isRecording = false;
     const sels = getSelectors(mode);
-    const btn = document.getElementById(sels.stopBtn); // Use stop button for questionnaire
-    if (btn) { btn.innerHTML = '<i class="bi bi-record-circle"></i> Start Recording'; btn.classList.remove('btn-success'); btn.classList.add('btn-danger'); }
+    const btn = document.getElementById(sels.recordBtn);
+    if (btn) { 
+      btn.disabled = false;
+    }
+    const stopBtn = document.getElementById(mode === 'questionnaire' ? 'singleStopBtn' : 'idiStopBtn');
+    if (stopBtn) {
+      stopBtn.disabled = true;
+    }
     const rs = document.getElementById(sels.recordingStatus);
     if (rs) rs.innerHTML = '<small class="text-success"><i class="bi bi-check-circle me-1"></i>Recording completed</small>';
     mediaRecorder.stream.getTracks().forEach(t => t.stop());
-  const pauseBtn = document.getElementById(mode === 'questionnaire' ? 'singlePauseBtn' : 'idiPauseBtn');
-  if (pauseBtn) { pauseBtn.disabled = true; pauseBtn.innerHTML = '<i class="bi bi-pause-circle"></i> Pause'; }
     isPaused = false;
   }
 }
