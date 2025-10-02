@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personalised Hypertension Management through Digital N-of-1 Trials in Ghana</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Self-Administered Research Tool for Healthcare Participants">
+    <meta name="theme-color" content="#d72c18">
+    <title>Healthcare Research Tool</title>
+    
+    <!-- PWA Configuration -->
     <link rel="manifest" href="./manifest.json">
-    <link rel="apple-touch-icon" href="./assets/icon-512.svg">
+    <link rel="icon" type="image/svg+xml" href="./icon-512.svg">
+    <link rel="apple-touch-icon" href="./icon-512.svg">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#d72c18">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container-fluid py-4">
@@ -69,9 +74,21 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-
-
-    <script src="app.js" type="module"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed:', err));
+            });
+        }
+    </script>
+    
+    <script type="module" src="questionnaire_app.js"></script>
+</body>
+</html>    <script src="app.js" type="module"></script>
 
     
 </body>

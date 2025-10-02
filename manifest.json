@@ -1,15 +1,23 @@
 {
-  "name": "Hypertension Study Self-Administered Kit",
-  "short_name": "Self-Kit",
-  "start_url": ".",
+  "name": "Healthcare Research Tool",
+  "short_name": "Research Tool",
+  "description": "Self-Administered Research Tool for Healthcare Participants",
+  "start_url": "./index.html",
   "scope": ".",
   "display": "standalone",
-  "background_color": "#101322",
+  "background_color": "#ffffff",
   "theme_color": "#d72c18",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "assets/icon-512.svg",
+      "src": "icon-512.svg",
       "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.svg",
+      "sizes": "192x192",
       "type": "image/svg+xml"
     }
   ]

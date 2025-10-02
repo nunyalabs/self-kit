@@ -14,7 +14,7 @@ const PRECACHE_URLS = [
   './questionnaire_app.js',
   './audio.js',
   './pwa.js',
-  './assets/icon-512.svg'
+  './icon-512.svg'
 ];
 
 self.addEventListener('install', (event) => {
